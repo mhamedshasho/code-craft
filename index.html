@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Code Editor Pro - نسخة محسنة</title>
+    <title>Code Editor Pro - Mhamed Shasho</title>
     <style>
         * {
             margin: 0;
@@ -682,16 +682,17 @@
             display: inline-block;
         }
 
-        /* Status Bar */
+        /* Status Bar - مع التوقيع */
         .status-bar {
             background: #1a1e26;
-            padding: 10px 16px;
+            padding: 10px 20px;
             display: flex;
-            gap: 20px;
+            gap: 24px;
             border-top: 1px solid #2c313a;
-            font-size: 12px;
+            font-size: 13px;
             color: #9aa4b2;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .status-item {
@@ -705,14 +706,35 @@
             font-weight: 600;
         }
 
+        .signature {
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f1217;
+            padding: 4px 12px;
+            border-radius: 30px;
+            border: 1px solid #2563eb40;
+        }
+
+        .signature span {
+            color: #9aa4b2;
+            font-size: 12px;
+        }
+
+        .signature strong {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
         .hidden {
             display: none;
         }
     </style>
 
-    <!-- تضمين أداة الألوان بشكل منفصل -->
+    <!-- أنماط أداة الألوان -->
     <style>
-        /* أنماط أداة الألوان - كما هي بدون تعديل */
         .color-tool-container {
             width: 100%;
         }
@@ -1097,7 +1119,7 @@ console.log('الصفحة جاهزة');</textarea>
                         </h2>
                     </div>
 
-                    <!-- قائمة الأدوات بدون إيموجيز -->
+                    <!-- قائمة الأدوات -->
                     <div class="tools-menu">
                         <div class="tool-menu-item active" onclick="showTool('performance')">
                             <span class="tool-icon">📊</span>
@@ -1211,7 +1233,7 @@ console.log('الصفحة جاهزة');</textarea>
                             </div>
                         </div>
 
-                        <!-- 5. أداة الألوان - كما هي بدون تعديل -->
+                        <!-- 5. أداة الألوان -->
                         <div id="colorTool" style="display: none;">
                             <div class="color-tool-container">
                                 <div class="color-card">
@@ -1333,7 +1355,7 @@ console.log('الصفحة جاهزة');</textarea>
                 </div>
             </div>
 
-            <!-- شريط الحالة -->
+            <!-- شريط الحالة مع التوقيع -->
             <div class="status-bar">
                 <div class="status-item">
                     <span>📁</span>
@@ -1346,6 +1368,10 @@ console.log('الصفحة جاهزة');</textarea>
                 <div class="status-item">
                     <span>💾</span>
                     آخر حفظ: <span class="status-value" id="lastSaved">-</span>
+                </div>
+                <div class="signature">
+                    <span>Made by</span>
+                    <strong>Mhamed Shasho</strong>
                 </div>
             </div>
         </div>
@@ -1591,9 +1617,8 @@ button {
             }
         }
 
-        // ========== أداة الألوان - كما هي بدون تعديل ==========
+        // ========== أداة الألوان ==========
         function initColorTool() {
-            // نسخة طبق الأصل من كود الألوان الأصلي
             let colorMode = 'rgb';
             let r = 128, g = 128, b = 128;
 
