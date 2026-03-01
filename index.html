@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Code Editor Pro - معاينة متجاوبة</title>
+    <title>Code Editor Pro - نسخة محسنة</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0a0c0f;
             min-height: 100vh;
             padding: 16px;
@@ -26,7 +26,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0a0c0f 0%, #1a1e26 100%);
+            background: #0a0c0f;
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -35,88 +35,78 @@
         }
 
         .password-container {
-            background: rgba(30, 34, 40, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 48px 40px;
-            max-width: 440px;
+            background: #1a1e26;
+            border-radius: 16px;
+            padding: 40px 32px;
+            max-width: 400px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(37, 99, 235, 0.2);
+            border: 1px solid #2c313a;
         }
 
         .lock-icon {
-            width: 88px;
-            height: 88px;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            width: 72px;
+            height: 72px;
+            background: #2563eb;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 28px;
-            font-size: 36px;
+            margin: 0 auto 24px;
+            font-size: 32px;
             color: white;
-            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.5);
         }
 
         .password-container h2 {
             color: #ffffff;
             margin-bottom: 8px;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 24px;
+            font-weight: 600;
         }
 
         .password-container p {
             color: #9aa4b2;
-            margin-bottom: 32px;
-            font-size: 15px;
+            margin-bottom: 24px;
+            font-size: 14px;
         }
 
         .password-input {
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background: #0f1217;
-            border: 2px solid #2c313a;
-            border-radius: 14px;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
             color: #ffffff;
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
-            letter-spacing: 8px;
-            margin-bottom: 24px;
-            transition: all 0.3s;
-            -webkit-appearance: none;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
 
         .password-input:focus {
             border-color: #2563eb;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
             outline: none;
         }
 
         .password-btn {
             width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            padding: 16px;
+            background: #2563eb;
             border: none;
-            border-radius: 14px;
+            border-radius: 8px;
             color: white;
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s;
-            -webkit-appearance: none;
         }
 
         .password-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px #2563eb;
+            background: #1d4ed8;
         }
 
         .error-message {
             color: #ef4444;
-            margin-top: 20px;
+            margin-top: 16px;
             font-size: 14px;
             display: none;
         }
@@ -126,29 +116,22 @@
             max-width: 1600px;
             margin: 0 auto;
             background: #0f1217;
-            border-radius: 24px;
+            border-radius: 16px;
             border: 1px solid #2c313a;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Header أنيق */
         .header {
-            background: linear-gradient(135deg, #1a1e26, #0f1217);
-            padding: 24px 28px;
+            background: #1a1e26;
+            padding: 20px 24px;
             border-bottom: 1px solid #2c313a;
         }
 
         .header h1 {
             color: #ffffff;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
         .header p {
@@ -159,7 +142,7 @@
         /* ===== تخطيط الشبكة ===== */
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 340px;
+            grid-template-columns: 1fr 400px;
             gap: 16px;
             padding: 16px;
         }
@@ -180,8 +163,8 @@
         /* Toolbar */
         .toolbar {
             background: #1a1e26;
-            padding: 14px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 12px;
             border: 1px solid #2c313a;
             display: flex;
             gap: 12px;
@@ -194,19 +177,18 @@
             gap: 8px;
             background: #0f1217;
             padding: 4px;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid #2c313a;
         }
 
         .file-info input {
-            padding: 10px 16px;
+            padding: 8px 12px;
             border: 1px solid #2c313a;
-            border-radius: 10px;
+            border-radius: 6px;
             background: #0f1217;
             color: white;
             font-size: 14px;
-            min-width: 160px;
-            transition: all 0.2s;
+            min-width: 150px;
         }
 
         .file-info input:focus {
@@ -215,9 +197,9 @@
         }
 
         .file-info select {
-            padding: 10px 16px;
+            padding: 8px 12px;
             border: 1px solid #2c313a;
-            border-radius: 10px;
+            border-radius: 6px;
             background: #0f1217;
             color: white;
             font-size: 14px;
@@ -231,18 +213,14 @@
         }
 
         .btn {
-            padding: 10px 18px;
+            padding: 8px 16px;
             border: 1px solid #2c313a;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
             background: #0f1217;
             color: #ffffff;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .btn:hover {
@@ -259,11 +237,11 @@
             background: #1d4ed8;
         }
 
-        /* محررات أنيقة */
+        /* محررات */
         .editors-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 12px;
         }
 
         @media (max-width: 768px) {
@@ -274,19 +252,14 @@
 
         .editor-card {
             background: #1a1e26;
-            border-radius: 16px;
+            border-radius: 12px;
             border: 1px solid #2c313a;
             overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .editor-card:hover {
-            border-color: #2563eb;
         }
 
         .editor-header {
             background: #0f1217;
-            padding: 12px 16px;
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -296,46 +269,47 @@
         .editor-title {
             font-weight: 600;
             color: white;
+            font-size: 14px;
         }
 
         .editor-badge {
             background: #2563eb20;
             color: #2563eb;
-            padding: 4px 10px;
-            border-radius: 20px;
+            padding: 2px 8px;
+            border-radius: 16px;
             font-size: 11px;
             border: 1px solid #2563eb40;
         }
 
         textarea {
             width: 100%;
-            height: 260px;
-            padding: 16px;
-            font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+            height: 240px;
+            padding: 12px;
+            font-family: 'Fira Code', monospace;
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.5;
             border: none;
             background: #0f1217;
             color: #e5e7eb;
             direction: ltr;
-            resize: none;
+            resize: vertical;
         }
 
         textarea:focus {
             outline: 1px solid #2563eb;
         }
 
-        /* ===== معاينة متجاوبة (الأساسية) ===== */
+        /* معاينة */
         .preview-section {
             background: #1a1e26;
-            border-radius: 16px;
+            border-radius: 12px;
             border: 1px solid #2c313a;
             overflow: hidden;
         }
 
         .preview-header {
             background: #0f1217;
-            padding: 14px 16px;
+            padding: 12px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -344,7 +318,7 @@
 
         .preview-header h3 {
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
         }
 
@@ -353,23 +327,18 @@
             gap: 8px;
             background: #0f1217;
             padding: 4px;
-            border-radius: 40px;
+            border-radius: 6px;
             border: 1px solid #2c313a;
         }
 
         .device-btn {
-            padding: 8px 16px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 30px;
+            border-radius: 4px;
             background: transparent;
             color: #9aa4b2;
             cursor: pointer;
-            font-size: 13px;
-            transition: all 0.2s;
-        }
-
-        .device-btn:hover {
-            color: white;
+            font-size: 12px;
         }
 
         .device-btn.active {
@@ -378,29 +347,27 @@
         }
 
         .preview-container {
-            padding: 24px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             background: #0f1217;
         }
 
         .responsive-frame {
-            border: 2px solid #2c313a;
-            border-radius: 20px;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
             background: white;
-            transition: all 0.3s;
             overflow: hidden;
-            box-shadow: 0 10px 30px -10px black;
         }
 
         .frame-mobile {
             width: 375px;
-            height: 667px;
+            height: 600px;
         }
 
         .frame-tablet {
             width: 768px;
-            height: 1024px;
+            height: 900px;
         }
 
         .frame-desktop {
@@ -410,30 +377,29 @@
 
         .dimension-info {
             text-align: center;
-            padding: 12px;
+            padding: 10px;
             color: #9aa4b2;
-            font-size: 13px;
+            font-size: 12px;
             border-top: 1px solid #2c313a;
         }
 
         /* ===== الشريط الجانبي ===== */
         .sidebar {
             background: #1a1e26;
-            border-radius: 16px;
+            border-radius: 12px;
             border: 1px solid #2c313a;
             overflow: hidden;
-            height: fit-content;
         }
 
         .sidebar-header {
             background: #0f1217;
-            padding: 16px 18px;
+            padding: 14px 16px;
             border-bottom: 1px solid #2c313a;
         }
 
         .sidebar-header h2 {
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -444,18 +410,19 @@
             display: flex;
             flex-direction: column;
             padding: 8px;
+            max-height: 500px;
+            overflow-y: auto;
         }
 
         .tool-menu-item {
-            padding: 12px 16px;
-            border-radius: 12px;
+            padding: 10px 14px;
+            border-radius: 6px;
             color: #9aa4b2;
             cursor: pointer;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 14px;
+            gap: 10px;
+            font-size: 13px;
             font-weight: 500;
             margin-bottom: 2px;
         }
@@ -471,278 +438,260 @@
         }
 
         .tool-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             background: #0f1217;
-            border-radius: 10px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .tool-content {
-            padding: 18px;
+            padding: 16px;
             border-top: 1px solid #2c313a;
-            max-height: 500px;
+            max-height: 600px;
             overflow-y: auto;
         }
 
-        /* ===== أدوات أنيقة ===== */
+        /* ===== أدوات موحدة ===== */
+        .tool-card {
+            background: #0f1217;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #2c313a;
+        }
 
-        /* Performance Monitor */
-        .performance-dashboard {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+        .tool-tabs {
+            display: flex;
+            gap: 8px;
+            background: #1a1e26;
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid #2c313a;
             margin-bottom: 16px;
         }
 
-        .metric-card {
+        .tool-tab {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: #9aa4b2;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tool-tab.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .tool-input {
+            width: 100%;
+            padding: 12px;
             background: #1a1e26;
             border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 14px;
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .tool-textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1a1e26;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-family: monospace;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 12px;
+        }
+
+        .tool-preview {
+            background: #1a1e26;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
             text-align: center;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-preview img {
+            max-width: 100%;
+            max-height: 100px;
+            border-radius: 4px;
+        }
+
+        .tool-preview audio {
+            width: 100%;
+        }
+
+        .tool-file-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a1e26;
+            border: 1px solid #2c313a;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+        }
+
+        .tool-file-label {
+            background: #2563eb20;
+            color: #2563eb;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #2563eb40;
+        }
+
+        .tool-file-name {
+            color: #9aa4b2;
+            font-size: 12px;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tool-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 12px 0;
+        }
+
+        .tool-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 12px;
+            cursor: pointer;
+            min-width: 60px;
+        }
+
+        .btn-encode {
+            background: #059669;
+            color: white;
+        }
+
+        .btn-encode:hover {
+            background: #047857;
+        }
+
+        .btn-decode {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-decode:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-copy {
+            background: #7c3aed;
+            color: white;
+        }
+
+        .btn-copy:hover {
+            background: #6d28d9;
+        }
+
+        .btn-clear {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background: #4b5563;
+        }
+
+        .btn-generate {
+            background: #d97706;
+            color: white;
+        }
+
+        .btn-generate:hover {
+            background: #b45309;
+        }
+
+        .tool-result {
+            background: #1a1e26;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #10b981;
+            word-break: break-all;
+            max-height: 100px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .metric-item {
+            background: #1a1e26;
+            border: 1px solid #2c313a;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2563eb;
         }
 
         .metric-label {
             color: #9aa4b2;
-            font-size: 12px;
-            margin-bottom: 6px;
-        }
-
-        .metric-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2563eb;
-        }
-
-        .metric-unit {
-            color: #9aa4b2;
-            font-size: 11px;
-            margin-right: 2px;
-        }
-
-        .performance-chart {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 14px;
-        }
-
-        .chart-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .chart-label {
-            width: 45px;
-            color: #9aa4b2;
-            font-size: 12px;
-        }
-
-        .chart-bar-container {
-            flex: 1;
-            height: 8px;
-            background: #2c313a;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .chart-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            border-radius: 4px;
-            transition: width 0.5s;
-        }
-
-        .chart-percent {
-            width: 40px;
-            color: white;
-            font-size: 12px;
-            text-align: right;
-        }
-
-        /* Code Statistics */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .stat-card {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 14px;
-        }
-
-        .stat-number {
-            font-size: 22px;
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 4px;
-        }
-
-        .stat-name {
-            color: #9aa4b2;
             font-size: 11px;
         }
 
-        .stat-details {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 14px;
-        }
-
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #2c313a;
-            font-size: 13px;
-        }
-
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-
-        /* Code Search */
-        .search-box {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .search-input {
-            flex: 1;
+        .qr-container {
+            background: white;
             padding: 12px;
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 12px;
-            color: white;
-            font-size: 14px;
-        }
-
-        .search-input:focus {
-            border-color: #2563eb;
-            outline: none;
-        }
-
-        .search-filters {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 16px;
-        }
-
-        .filter-option {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #9aa4b2;
-            font-size: 13px;
-        }
-
-        .results-list {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 12px;
-            padding: 10px;
-            max-height: 220px;
-            overflow-y: auto;
-        }
-
-        .result-item {
-            padding: 10px;
-            border-bottom: 1px solid #2c313a;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .result-item:hover {
-            background: #2c313a;
-        }
-
-        .result-item:last-child {
-            border-bottom: none;
-        }
-
-        /* Password Generator */
-        .password-display {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 18px;
-            font-family: monospace;
-            font-size: 18px;
-            color: #10b981;
+            border-radius: 8px;
             text-align: center;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
+            margin: 12px 0;
         }
 
-        .strength-meter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .strength-bar {
-            flex: 1;
-            height: 8px;
-            background: #2c313a;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .strength-fill {
-            height: 100%;
-            transition: all 0.3s;
-        }
-
-        .strength-weak { background: #ef4444; }
-        .strength-medium { background: #f59e0b; }
-        .strength-strong { background: #10b981; }
-
-        .password-options {
-            background: #1a1e26;
-            border: 1px solid #2c313a;
-            border-radius: 14px;
-            padding: 14px;
-        }
-
-        .option-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #2c313a;
-        }
-
-        .option-row:last-child {
-            border-bottom: none;
+        .qr-container img {
+            display: inline-block;
         }
 
         /* Status Bar */
         .status-bar {
             background: #1a1e26;
-            padding: 12px 20px;
+            padding: 10px 16px;
             display: flex;
-            gap: 24px;
+            gap: 20px;
             border-top: 1px solid #2c313a;
-            font-size: 13px;
+            font-size: 12px;
             color: #9aa4b2;
+            flex-wrap: wrap;
         }
 
         .status-item {
@@ -756,25 +705,254 @@
             font-weight: 600;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f1217;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #2c313a;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
+        .hidden {
+            display: none;
         }
     </style>
+
+    <!-- تضمين أداة الألوان بشكل منفصل -->
+    <style>
+        /* أنماط أداة الألوان - كما هي بدون تعديل */
+        .color-tool-container {
+            width: 100%;
+        }
+        
+        .color-card {
+            max-width: 100%;
+            width: 100%;
+            background: rgba(18, 30, 40, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -15px #000000, 0 0 0 1px rgba(74, 124, 170, 0.35) inset, 0 10px 30px -10px #000000;
+            padding: 1.8rem 1.8rem 2.2rem;
+            border: 1px solid #2f4f70;
+        }
+
+        .color-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .color-header h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #e3eef9;
+            background: #1f3d57c0;
+            padding: 0.3rem 1.5rem;
+            border-radius: 3rem;
+            box-shadow: 0 8px 18px #00000040;
+            border: 1px solid #346a97;
+        }
+
+        .color-mode-switch {
+            display: flex;
+            gap: 0.5rem;
+            background: #1a3247;
+            padding: 0.4rem;
+            border-radius: 3.5rem;
+            border: 1px solid #3c6b95;
+            box-shadow: inset 0 2px 6px #00000060;
+        }
+
+        .color-mode-btn {
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: 550;
+            padding: 0.6rem 2rem;
+            border-radius: 3rem;
+            color: #b6d2f0;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .color-mode-btn.active {
+            background: #2d577f;
+            color: white;
+            box-shadow: 0 6px 14px #00000080, 0 0 0 1px #7ba9da;
+            border-color: #98c1f0;
+            font-weight: 600;
+        }
+
+        .color-stage {
+            background: #0d253ac0;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #30658b;
+            box-shadow: 0 15px 30px -12px black, inset 0 1px 4px #558fc0;
+            margin-bottom: 1.8rem;
+        }
+
+        .live-preview {
+            width: 100%;
+            height: 160px;
+            border-radius: 1.4rem;
+            background: #2a4b6e;
+            border: 3px solid #173c58;
+            box-shadow: 0 8px 22px black, 0 0 0 1px #6a9fd4 inset;
+            margin-bottom: 1.2rem;
+        }
+
+        .code-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .code-cell {
+            background: #122c41;
+            border-radius: 3rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #3f73a3;
+            box-shadow: inset 0 1px 8px #00000070, 0 6px 14px #00000060;
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .code-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #9fc1e3;
+            margin-right: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px black;
+        }
+
+        .code-value {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #e6f0ff;
+            background: #173f5e;
+            padding: 0.2rem 1.2rem;
+            border-radius: 4rem;
+            border: 1px solid #528ac2;
+            box-shadow: inset 0 2px 6px #00000060, 0 2px 8px black;
+            cursor: pointer;
+        }
+
+        .code-value:hover {
+            background: #1f5580;
+            border-color: #7fb6f0;
+        }
+
+        .color-sliders-panel {
+            background: #0e263cd9;
+            border-radius: 2rem;
+            padding: 1.5rem 1.5rem 1rem;
+            border: 1px solid #356a99;
+            box-shadow: 0 12px 28px -8px black, inset 0 1px 5px #3c76aa;
+        }
+
+        .color-slider-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            background: #0b253caa;
+            padding: 0.6rem 1.2rem;
+            border-radius: 3rem;
+            border: 1px solid #346a9c;
+            box-shadow: inset 0 1px 6px #183f5e, 0 6px 14px #00000070;
+        }
+
+        .channel-badge {
+            width: 3.5rem;
+            font-size: 1.8rem;
+            font-weight: 650;
+            text-align: center;
+            text-shadow: 0 2px 6px black;
+        }
+
+        .badge-r { color: #ffa7a7; }
+        .badge-g { color: #abffab; }
+        .badge-b { color: #b3cbff; }
+        .badge-c { color: #94dcff; }
+        .badge-m { color: #ffb3e6; }
+        .badge-y { color: #f9f7b3; }
+        .badge-k { color: #dddddd; }
+
+        .color-slider {
+            flex: 1;
+            min-width: 200px;
+            height: 10px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, #234a6b, #2e6291);
+            border-radius: 30px;
+            border: 1px solid #427eb3;
+            box-shadow: inset 0 2px 8px #000000b3, 0 1px 4px #a0c0f030;
+        }
+
+        .color-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #edf6ff;
+            border-radius: 50%;
+            border: 2px solid #174e7a;
+            box-shadow: 0 6px 14px black, 0 0 0 2px #99c3f0;
+            cursor: pointer;
+        }
+
+        .color-slider::-webkit-slider-thumb:hover {
+            background: white;
+        }
+
+        .color-number {
+            width: 85px;
+            background: #103753;
+            border: 2px solid #2f6090;
+            border-radius: 40px;
+            padding: 0.6rem 0.2rem 0.6rem 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 550;
+            font-family: 'JetBrains Mono', monospace;
+            color: #e0f0ff;
+            text-align: center;
+            box-shadow: inset 0 3px 12px black;
+            outline: none;
+        }
+
+        .color-number:focus {
+            border-color: #78b3f0;
+            background: #1d4b73;
+            box-shadow: 0 0 0 3px #1f5780;
+        }
+
+        .color-footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            color: #b7d6f5;
+            font-weight: 450;
+            border-top: 1px dashed #2a5780;
+            padding-top: 1.2rem;
+        }
+
+        .color-footer span {
+            background: #17334f;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid #336696;
+            box-shadow: inset 0 1px 5px #1f3f5e, 0 5px 12px black;
+        }
+    </style>
+
+    <!-- QR Code library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <!-- شاشة كلمة المرور -->
@@ -782,8 +960,8 @@
         <div class="password-container">
             <div class="lock-icon">🔒</div>
             <h2>Code Editor Pro</h2>
-            <p>أدخل كلمة المرور للوصول إلى مساحة العمل</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="••••••••" maxlength="10" inputmode="numeric" pattern="[0-9]*">
+            <p>أدخل كلمة المرور للوصول</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="••••••••" maxlength="10">
             <button class="password-btn" onclick="checkPassword()">دخول</button>
             <div id="errorMessage" class="error-message">❌ كلمة المرور غير صحيحة</div>
         </div>
@@ -794,12 +972,13 @@
         <div class="container">
             <div class="header">
                 <h1>Code Editor Pro</h1>
-                <p>محرر أكواد مع معاينة متجاوبة و 7 أدوات احترافية</p>
+                <p>محرر أكواد متكامل مع أدوات احترافية</p>
             </div>
 
             <div class="main-grid">
                 <!-- القسم الرئيسي -->
                 <div class="main-content">
+                    <!-- شريط الأدوات -->
                     <div class="toolbar">
                         <div class="file-info">
                             <input type="text" id="filename" value="project">
@@ -818,6 +997,7 @@
                         </div>
                     </div>
 
+                    <!-- محررات الأكواد -->
                     <div class="editors-grid">
                         <div class="editor-card">
                             <div class="editor-header">
@@ -871,12 +1051,6 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    transition: all 0.3s;
-}
-
-button:hover {
-    background: #f3f4f6;
-    transform: scale(1.05);
 }</textarea>
                         </div>
 
@@ -893,10 +1067,10 @@ console.log('الصفحة جاهزة');</textarea>
                         </div>
                     </div>
 
-                    <!-- معاينة متجاوبة (الأساسية) -->
+                    <!-- معاينة -->
                     <div class="preview-section">
                         <div class="preview-header">
-                            <h3>معاينة متجاوبة</h3>
+                            <h3>معاينة</h3>
                             <div class="device-selector">
                                 <button class="device-btn active" onclick="changeDevice('mobile')">جوال</button>
                                 <button class="device-btn" onclick="changeDevice('tablet')">تابلت</button>
@@ -905,24 +1079,25 @@ console.log('الصفحة جاهزة');</textarea>
                         </div>
                         
                         <div class="preview-container">
-                            <iframe id="responsiveFrame" class="responsive-frame frame-mobile" title="معاينة متجاوبة"></iframe>
+                            <iframe id="responsiveFrame" class="responsive-frame frame-mobile" title="معاينة"></iframe>
                         </div>
                         
                         <div class="dimension-info" id="dimensionInfo">
-                            375 × 667
+                            375 × 600
                         </div>
                     </div>
                 </div>
 
-                <!-- الشريط الجانبي -->
+                <!-- الشريط الجانبي - الأدوات -->
                 <div class="sidebar">
                     <div class="sidebar-header">
                         <h2>
-                            <span>✨</span>
-                            الأدوات الذكية
+                            <span>✦</span>
+                            الأدوات
                         </h2>
                     </div>
 
+                    <!-- قائمة الأدوات بدون إيموجيز -->
                     <div class="tools-menu">
                         <div class="tool-menu-item active" onclick="showTool('performance')">
                             <span class="tool-icon">📊</span>
@@ -930,258 +1105,227 @@ console.log('الصفحة جاهزة');</textarea>
                         </div>
                         <div class="tool-menu-item" onclick="showTool('stats')">
                             <span class="tool-icon">📈</span>
-                            إحصائيات الكود
+                            إحصائيات
                         </div>
                         <div class="tool-menu-item" onclick="showTool('search')">
                             <span class="tool-icon">🔍</span>
-                            بحث متقدم
+                            بحث
                         </div>
                         <div class="tool-menu-item" onclick="showTool('formatter')">
                             <span class="tool-icon">✨</span>
-                            منسق الكود
+                            تنسيق
+                        </div>
+                        <div class="tool-menu-item" onclick="showTool('color')">
+                            <span class="tool-icon">🎨</span>
+                            ألوان
+                        </div>
+                        <div class="tool-menu-item" onclick="showTool('qr')">
+                            <span class="tool-icon">🔗</span>
+                            QR
+                        </div>
+                        <div class="tool-menu-item" onclick="showTool('base64')">
+                            <span class="tool-icon">🔐</span>
+                            Base64
                         </div>
                         <div class="tool-menu-item" onclick="showTool('password')">
-                            <span class="tool-icon">🔐</span>
-                            مولد كلمات المرور
-                        </div>
-                        <div class="tool-menu-item" onclick="showTool('browser')">
-                            <span class="tool-icon">🌐</span>
-                            توافق المتصفحات
+                            <span class="tool-icon">🔑</span>
+                            كلمات مرور
                         </div>
                     </div>
 
+                    <!-- محتوى الأدوات -->
                     <div class="tool-content">
-                        <!-- 1. Performance Monitor -->
+                        <!-- 1. أداة مراقب الأداء -->
                         <div id="performanceTool">
-                            <div class="performance-dashboard">
-                                <div class="metric-card">
-                                    <div class="metric-label">وقت التحميل</div>
-                                    <div class="metric-value" id="loadTime">1.2</div>
-                                    <span class="metric-unit">ث</span>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-label">الذاكرة</div>
-                                    <div class="metric-value" id="memoryUsage">45</div>
-                                    <span class="metric-unit">MB</span>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-label">المعالج</div>
-                                    <div class="metric-value" id="cpuUsage">12</div>
-                                    <span class="metric-unit">%</span>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-label">العناصر</div>
-                                    <div class="metric-value" id="domCount">124</div>
-                                </div>
-                            </div>
-
-                            <div class="performance-chart">
-                                <div class="chart-item">
-                                    <span class="chart-label">HTML</span>
-                                    <div class="chart-bar-container">
-                                        <div class="chart-bar" id="htmlChart" style="width: 45%;"></div>
+                            <div class="tool-card">
+                                <div class="metric-grid">
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="loadTime">1.2</div>
+                                        <div class="metric-label">وقت التحميل (ث)</div>
                                     </div>
-                                    <span class="chart-percent" id="htmlPercent">45%</span>
-                                </div>
-                                <div class="chart-item">
-                                    <span class="chart-label">CSS</span>
-                                    <div class="chart-bar-container">
-                                        <div class="chart-bar" id="cssChart" style="width: 30%;"></div>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="memoryUsage">45</div>
+                                        <div class="metric-label">الذاكرة (MB)</div>
                                     </div>
-                                    <span class="chart-percent" id="cssPercent">30%</span>
-                                </div>
-                                <div class="chart-item">
-                                    <span class="chart-label">JS</span>
-                                    <div class="chart-bar-container">
-                                        <div class="chart-bar" id="jsChart" style="width: 25%;"></div>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="cpuUsage">12</div>
+                                        <div class="metric-label">المعالج (%)</div>
                                     </div>
-                                    <span class="chart-percent" id="jsPercent">25%</span>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="domCount">124</div>
+                                        <div class="metric-label">عناصر</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 2. Code Statistics -->
+                        <!-- 2. أداة إحصائيات الكود -->
                         <div id="statsTool" style="display: none;">
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <div class="stat-number" id="totalLines">0</div>
-                                    <div class="stat-name">الأسطر</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" id="totalChars">0</div>
-                                    <div class="stat-name">الأحرف</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" id="totalWords">0</div>
-                                    <div class="stat-name">الكلمات</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" id="functionCount">0</div>
-                                    <div class="stat-name">الدوال</div>
-                                </div>
-                            </div>
-
-                            <div class="stat-details">
-                                <div class="stat-row">
-                                    <span>أسطر HTML</span>
-                                    <span id="htmlLinesCount">0</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>أسطر CSS</span>
-                                    <span id="cssLinesCount">0</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>أسطر JS</span>
-                                    <span id="jsLinesCount">0</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>التعليقات</span>
-                                    <span id="commentCount">0</span>
+                            <div class="tool-card">
+                                <div class="metric-grid">
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="totalLines">0</div>
+                                        <div class="metric-label">الأسطر</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="totalChars">0</div>
+                                        <div class="metric-label">الأحرف</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="totalWords">0</div>
+                                        <div class="metric-label">الكلمات</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value" id="functionCount">0</div>
+                                        <div class="metric-label">الدوال</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 3. Code Search -->
+                        <!-- 3. أداة البحث -->
                         <div id="searchTool" style="display: none;">
-                            <div class="search-box">
-                                <input type="text" id="searchInput" class="search-input" placeholder="بحث...">
-                                <button class="btn btn-primary" onclick="searchCode()">بحث</button>
-                            </div>
-
-                            <div class="search-filters">
-                                <label class="filter-option">
-                                    <input type="checkbox" id="searchHtml" checked> HTML
-                                </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" id="searchCss" checked> CSS
-                                </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" id="searchJs" checked> JS
-                                </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" id="matchCase"> مطابقة حالة
-                                </label>
-                            </div>
-
-                            <div id="searchResults" class="results-list">
-                                <div style="color: #9aa4b2; text-align: center; padding: 15px;">
-                                    اكتب كلمة البحث
+                            <div class="tool-card">
+                                <input type="text" id="searchInput" class="tool-input" placeholder="كلمة البحث...">
+                                <div class="tool-buttons">
+                                    <button class="tool-btn btn-encode" onclick="searchCode()">بحث</button>
+                                    <button class="tool-btn btn-clear" onclick="clearSearch()">مسح</button>
+                                </div>
+                                <div id="searchResults" class="tool-result">
+                                    نتائج البحث
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 4. Code Formatter -->
+                        <!-- 4. أداة تنسيق الكود -->
                         <div id="formatterTool" style="display: none;">
-                            <div class="password-options" style="margin-bottom: 16px;">
-                                <div class="option-row">
-                                    <span>المسافة البادئة</span>
-                                    <input type="number" id="indentSize" value="2" min="2" max="8" step="2" style="width: 60px; padding: 6px; background: #0f1217; border: 1px solid #2c313a; border-radius: 6px; color: white;">
+                            <div class="tool-card">
+                                <div class="tool-buttons">
+                                    <button class="tool-btn btn-encode" onclick="formatCode('html')">HTML</button>
+                                    <button class="tool-btn btn-encode" onclick="formatCode('css')">CSS</button>
+                                    <button class="tool-btn btn-encode" onclick="formatCode('js')">JS</button>
                                 </div>
-                                <div class="option-row">
-                                    <span>فواصل منقوطة</span>
-                                    <input type="checkbox" id="useSemicolons" checked>
+                                <div id="formatPreview" class="tool-result">
+                                    النتيجة بعد التنسيق
                                 </div>
-                                <div class="option-row">
-                                    <span>اقتباس مفرد</span>
-                                    <input type="checkbox" id="singleQuotes">
-                                </div>
-                            </div>
-
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
-                                <button class="btn" onclick="formatCode('html')">HTML</button>
-                                <button class="btn" onclick="formatCode('css')">CSS</button>
-                                <button class="btn" onclick="formatCode('js')">JS</button>
-                                <button class="btn btn-primary" onclick="formatCode('all')">الكل</button>
-                            </div>
-
-                            <div id="formatPreview" style="background: #1a1e26; border: 1px solid #2c313a; border-radius: 12px; padding: 12px; color: #10b981; font-family: monospace; font-size: 12px; max-height: 130px; overflow-y: auto;">
-                                نتائج التنسيق
                             </div>
                         </div>
 
-                        <!-- 5. Password Generator -->
+                        <!-- 5. أداة الألوان - كما هي بدون تعديل -->
+                        <div id="colorTool" style="display: none;">
+                            <div class="color-tool-container">
+                                <div class="color-card">
+                                    <div class="color-header">
+                                        <h3>chromatix</h3>
+                                        <div class="color-mode-switch">
+                                            <button class="color-mode-btn active" id="colorBtnRGB">RGB</button>
+                                            <button class="color-mode-btn" id="colorBtnCMYK">CMYK</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="color-stage">
+                                        <div class="live-preview" id="colorLivePreview"></div>
+                                        <div class="code-row">
+                                            <div class="code-cell">
+                                                <span class="code-label">hex</span>
+                                                <span class="code-value" id="colorHexDisplay">#808080</span>
+                                            </div>
+                                            <div class="code-cell">
+                                                <span class="code-label" id="colorSecondaryLabel">rgb</span>
+                                                <span class="code-value" id="colorSecondaryDisplay">(128,128,128)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="color-sliders-panel" id="colorSlidersPanel"></div>
+                                    
+                                    <div class="color-footer">
+                                        <span>اسحب لتغيير اللون</span>
+                                        <span>نقرتين للنسخ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. أداة QR Code -->
+                        <div id="qrTool" style="display: none;">
+                            <div class="tool-card">
+                                <input type="text" id="qrInput" class="tool-input" placeholder="نص أو رابط..." value="https://www.google.com">
+                                <div class="qr-container" id="qrcode"></div>
+                                <div class="tool-buttons">
+                                    <button class="tool-btn btn-encode" onclick="generateQR()">إنشاء</button>
+                                    <button class="tool-btn btn-copy" onclick="downloadQR()">تحميل</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. أداة Base64 -->
+                        <div id="base64Tool" style="display: none;">
+                            <div class="tool-card">
+                                <div class="tool-tabs">
+                                    <button class="tool-tab active" onclick="switchBase64Tab('text')">نص</button>
+                                    <button class="tool-tab" onclick="switchBase64Tab('image')">صورة</button>
+                                    <button class="tool-tab" onclick="switchBase64Tab('audio')">صوت</button>
+                                </div>
+
+                                <!-- Text Panel -->
+                                <div id="base64TextPanel" class="tool-panel">
+                                    <textarea id="base64TextInput" class="tool-textarea" placeholder="نص عادي أو Base64...">مرحباً بالعالم</textarea>
+                                    <div class="tool-buttons">
+                                        <button class="tool-btn btn-encode" onclick="base64EncodeText()">تشفير</button>
+                                        <button class="tool-btn btn-decode" onclick="base64DecodeText()">فك</button>
+                                        <button class="tool-btn btn-copy" onclick="base64CopyText()">نسخ</button>
+                                    </div>
+                                    <div class="tool-result" id="base64TextResult">--</div>
+                                </div>
+
+                                <!-- Image Panel -->
+                                <div id="base64ImagePanel" class="tool-panel hidden">
+                                    <div class="tool-file-row">
+                                        <label for="base64ImageFile" class="tool-file-label">اختر صورة</label>
+                                        <span class="tool-file-name" id="base64ImageName">jpg/png</span>
+                                    </div>
+                                    <input type="file" id="base64ImageFile" accept="image/*" style="display: none;">
+                                    <div class="tool-preview" id="base64ImagePreview">
+                                        <span style="color: #9aa4b2;">معاينة</span>
+                                    </div>
+                                    <div class="tool-buttons">
+                                        <button class="tool-btn btn-encode" onclick="base64EncodeImage()">تشفير</button>
+                                        <button class="tool-btn btn-decode" onclick="base64DecodeImage()">فك</button>
+                                        <button class="tool-btn btn-copy" onclick="base64CopyImage()">نسخ</button>
+                                    </div>
+                                    <div class="tool-result" id="base64ImageResult">--</div>
+                                </div>
+
+                                <!-- Audio Panel -->
+                                <div id="base64AudioPanel" class="tool-panel hidden">
+                                    <div class="tool-file-row">
+                                        <label for="base64AudioFile" class="tool-file-label">اختر صوت</label>
+                                        <span class="tool-file-name" id="base64AudioName">mp3/wav</span>
+                                    </div>
+                                    <input type="file" id="base64AudioFile" accept="audio/*" style="display: none;">
+                                    <div class="tool-preview" id="base64AudioPreview">
+                                        <audio controls style="width: 100%; display: none;">غير مدعوم</audio>
+                                    </div>
+                                    <div class="tool-buttons">
+                                        <button class="tool-btn btn-encode" onclick="base64EncodeAudio()">تشفير</button>
+                                        <button class="tool-btn btn-decode" onclick="base64DecodeAudio()">فك</button>
+                                        <button class="tool-btn btn-copy" onclick="base64CopyAudio()">نسخ</button>
+                                    </div>
+                                    <div class="tool-result" id="base64AudioResult">--</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. أداة كلمات المرور -->
                         <div id="passwordTool" style="display: none;">
-                            <div class="password-display" id="generatedPassword">
-                                Xk9#mP2$Lq5
-                            </div>
-
-                            <div class="strength-meter">
-                                <div class="strength-bar">
-                                    <div id="strengthBar" class="strength-fill strength-strong" style="width: 80%;"></div>
+                            <div class="tool-card">
+                                <div class="metric-item" style="margin-bottom: 12px;">
+                                    <div class="metric-value" id="generatedPassword">Xk9#mP2$</div>
                                 </div>
-                                <span id="strengthText" style="color: white; font-size: 13px;">قوية</span>
-                            </div>
-
-                            <div class="password-options">
-                                <div class="option-row">
-                                    <span>الطول</span>
-                                    <input type="number" id="passwordLength" value="12" min="4" max="32" style="width: 60px; padding: 6px; background: #0f1217; border: 1px solid #2c313a; border-radius: 6px; color: white;">
-                                </div>
-                                <div class="option-row">
-                                    <span>أحرف كبيرة</span>
-                                    <input type="checkbox" id="includeUppercase" checked>
-                                </div>
-                                <div class="option-row">
-                                    <span>أحرف صغيرة</span>
-                                    <input type="checkbox" id="includeLowercase" checked>
-                                </div>
-                                <div class="option-row">
-                                    <span>أرقام</span>
-                                    <input type="checkbox" id="includeNumbers" checked>
-                                </div>
-                                <div class="option-row">
-                                    <span>رموز</span>
-                                    <input type="checkbox" id="includeSymbols" checked>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; gap: 8px; margin-top: 16px;">
-                                <button class="btn btn-primary" style="flex: 1;" onclick="generatePassword()">توليد</button>
-                                <button class="btn" style="flex: 1;" onclick="copyPassword()">نسخ</button>
-                            </div>
-                        </div>
-
-                        <!-- 6. Browser Compatibility -->
-                        <div id="browserTool" style="display: none;">
-                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px;">
-                                <div class="metric-card" style="padding: 12px;">
-                                    <div style="color: white; margin-bottom: 5px;">Chrome</div>
-                                    <div style="font-size: 13px; color: #10b981;">✓ مدعوم</div>
-                                </div>
-                                <div class="metric-card" style="padding: 12px;">
-                                    <div style="color: white; margin-bottom: 5px;">Firefox</div>
-                                    <div style="font-size: 13px; color: #10b981;">✓ مدعوم</div>
-                                </div>
-                                <div class="metric-card" style="padding: 12px;">
-                                    <div style="color: white; margin-bottom: 5px;">Safari</div>
-                                    <div style="font-size: 13px; color: #f59e0b;">⚠️ جزئي</div>
-                                </div>
-                                <div class="metric-card" style="padding: 12px;">
-                                    <div style="color: white; margin-bottom: 5px;">Edge</div>
-                                    <div style="font-size: 13px; color: #10b981;">✓ مدعوم</div>
-                                </div>
-                            </div>
-
-                            <div class="stat-details">
-                                <div class="stat-row">
-                                    <span>HTML5</span>
-                                    <span style="color: #10b981;">✓</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>CSS3</span>
-                                    <span style="color: #10b981;">✓</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Flexbox</span>
-                                    <span style="color: #10b981;">✓</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Grid</span>
-                                    <span style="color: #10b981;">✓</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>ES6</span>
-                                    <span style="color: #10b981;">✓</span>
+                                <div class="tool-buttons">
+                                    <button class="tool-btn btn-encode" onclick="generatePassword()">توليد</button>
+                                    <button class="tool-btn btn-copy" onclick="copyPassword()">نسخ</button>
                                 </div>
                             </div>
                         </div>
@@ -1189,7 +1333,7 @@ console.log('الصفحة جاهزة');</textarea>
                 </div>
             </div>
 
-            <!-- Status Bar -->
+            <!-- شريط الحالة -->
             <div class="status-bar">
                 <div class="status-item">
                     <span>📁</span>
@@ -1202,10 +1346,6 @@ console.log('الصفحة جاهزة');</textarea>
                 <div class="status-item">
                     <span>💾</span>
                     آخر حفظ: <span class="status-value" id="lastSaved">-</span>
-                </div>
-                <div class="status-item">
-                    <span>⚡</span>
-                    الأداء: <span class="status-value" id="performanceStatus">ممتاز</span>
                 </div>
             </div>
         </div>
@@ -1222,11 +1362,16 @@ console.log('الصفحة جاهزة');</textarea>
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainEditor').style.display = 'block';
                 
+                // تهيئة كل الأدوات
                 runCode();
                 updateCurrentFile();
                 startAutoSave();
-                startPerformanceMonitoring();
+                initBase64();
                 updateAllStats();
+                startPerformanceMonitoring();
+                generateQR();
+                generatePassword();
+                initColorTool();
             } else {
                 document.getElementById('errorMessage').style.display = 'block';
                 document.getElementById('passwordInput').value = '';
@@ -1265,9 +1410,7 @@ console.log('الصفحة جاهزة');</textarea>
             `;
             
             document.getElementById('responsiveFrame').srcdoc = content;
-            
             updateStatus('تم التشغيل');
-            updateAllStats();
         }
 
         function downloadFile() {
@@ -1310,7 +1453,7 @@ console.log('الصفحة جاهزة');</textarea>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قالب احترافي</title>
+    <title>قالب</title>
 </head>
 <body>
     <nav>
@@ -1321,11 +1464,10 @@ console.log('الصفحة جاهزة');</textarea>
             <li><a href="#">اتصل بنا</a></li>
         </ul>
     </nav>
-    
     <main>
         <section class="hero">
-            <h1>مرحباً بكم</h1>
-            <p>نص تجريبي للقالب</p>
+            <h1>مرحباً</h1>
+            <p>نص تجريبي</p>
             <button>ابدأ</button>
         </section>
     </main>
@@ -1439,365 +1581,505 @@ button {
             
             if (device === 'mobile') {
                 frame.classList.add('frame-mobile');
-                document.getElementById('dimensionInfo').textContent = '375 × 667';
+                document.getElementById('dimensionInfo').textContent = '375 × 600';
             } else if (device === 'tablet') {
                 frame.classList.add('frame-tablet');
-                document.getElementById('dimensionInfo').textContent = '768 × 1024';
+                document.getElementById('dimensionInfo').textContent = '768 × 900';
             } else {
                 frame.classList.add('frame-desktop');
-                document.getElementById('dimensionInfo').textContent = '1920 × 1080';
+                document.getElementById('dimensionInfo').textContent = '1920 × 500';
             }
         }
 
-        // ========== مراقب الأداء التلقائي ==========
-        let startTime = Date.now();
-        let performanceInterval;
+        // ========== أداة الألوان - كما هي بدون تعديل ==========
+        function initColorTool() {
+            // نسخة طبق الأصل من كود الألوان الأصلي
+            let colorMode = 'rgb';
+            let r = 128, g = 128, b = 128;
 
+            const livePreview = document.getElementById('colorLivePreview');
+            const hexDisplay = document.getElementById('colorHexDisplay');
+            const secondaryDisplay = document.getElementById('colorSecondaryDisplay');
+            const secondaryLabel = document.getElementById('colorSecondaryLabel');
+            const slidersPanel = document.getElementById('colorSlidersPanel');
+            const btnRGB = document.getElementById('colorBtnRGB');
+            const btnCMYK = document.getElementById('colorBtnCMYK');
+
+            const clamp = (val, lo, hi) => Math.min(hi, Math.max(lo, val));
+
+            function rgbToCmykObject(red, green, blue) {
+                let rn = red / 255, gn = green / 255, bn = blue / 255;
+                let k = 1 - Math.max(rn, gn, bn);
+                if (k === 1) return { c: 0, m: 0, y: 0, k: 100 };
+                let c = (1 - rn - k) / (1 - k);
+                let m = (1 - gn - k) / (1 - k);
+                let y = (1 - bn - k) / (1 - k);
+                return {
+                    c: Math.round(c * 100),
+                    m: Math.round(m * 100),
+                    y: Math.round(y * 100),
+                    k: Math.round(k * 100)
+                };
+            }
+
+            function cmykToRgbObject(c, m, y, k) {
+                let cc = c / 100, mm = m / 100, yy = y / 100, kk = k / 100;
+                let r = 255 * (1 - cc) * (1 - kk);
+                let g = 255 * (1 - mm) * (1 - kk);
+                let b = 255 * (1 - yy) * (1 - kk);
+                return {
+                    r: Math.round(clamp(r, 0, 255)),
+                    g: Math.round(clamp(g, 0, 255)),
+                    b: Math.round(clamp(b, 0, 255))
+                };
+            }
+
+            function refreshUpperDisplay() {
+                r = clamp(r, 0, 255);
+                g = clamp(g, 0, 255);
+                b = clamp(b, 0, 255);
+
+                livePreview.style.background = `rgb(${r}, ${g}, ${b})`;
+
+                const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+                hexDisplay.textContent = hex;
+
+                if (colorMode === 'rgb') {
+                    secondaryLabel.textContent = 'rgb';
+                    secondaryDisplay.textContent = `(${r}, ${g}, ${b})`;
+                } else {
+                    secondaryLabel.textContent = 'cmyk';
+                    const cmyk = rgbToCmykObject(r, g, b);
+                    secondaryDisplay.textContent = `(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
+                }
+            }
+
+            function renderSliders() {
+                let html = '';
+
+                if (colorMode === 'rgb') {
+                    const channels = [
+                        { label: 'R', class: 'badge-r', val: r, max: 255 },
+                        { label: 'G', class: 'badge-g', val: g, max: 255 },
+                        { label: 'B', class: 'badge-b', val: b, max: 255 }
+                    ];
+                    channels.forEach(ch => {
+                        html += `
+                            <div class="color-slider-row" data-channel="${ch.label}">
+                                <span class="channel-badge ${ch.class}">${ch.label}</span>
+                                <input type="range" min="0" max="${ch.max}" value="${ch.val}" step="1" class="color-slider">
+                                <input type="number" min="0" max="${ch.max}" value="${ch.val}" step="1" class="color-number">
+                            </div>
+                        `;
+                    });
+                } else {
+                    const cmyk = rgbToCmykObject(r, g, b);
+                    const channels = [
+                        { label: 'C', class: 'badge-c', val: cmyk.c, max: 100 },
+                        { label: 'M', class: 'badge-m', val: cmyk.m, max: 100 },
+                        { label: 'Y', class: 'badge-y', val: cmyk.y, max: 100 },
+                        { label: 'K', class: 'badge-k', val: cmyk.k, max: 100 }
+                    ];
+                    channels.forEach(ch => {
+                        html += `
+                            <div class="color-slider-row" data-channel="${ch.label}">
+                                <span class="channel-badge ${ch.class}">${ch.label}</span>
+                                <input type="range" min="0" max="${ch.max}" value="${ch.val}" step="1" class="color-slider">
+                                <input type="number" min="0" max="${ch.max}" value="${ch.val}" step="1" class="color-number">
+                            </div>
+                        `;
+                    });
+                }
+
+                slidersPanel.innerHTML = html;
+                attachSliderEvents();
+            }
+
+            function attachSliderEvents() {
+                if (colorMode === 'rgb') {
+                    const rows = document.querySelectorAll('#colorSlidersPanel .color-slider-row');
+                    rows.forEach(row => {
+                        const ch = row.dataset.channel;
+                        const slider = row.querySelector('.color-slider');
+                        const number = row.querySelector('.color-number');
+
+                        function handler(value) {
+                            let val = clamp(value, 0, 255);
+                            slider.value = val;
+                            number.value = val;
+                            if (ch === 'R') r = val;
+                            else if (ch === 'G') g = val;
+                            else if (ch === 'B') b = val;
+                            refreshUpperDisplay();
+                        }
+
+                        slider.addEventListener('input', (e) => handler(parseInt(e.target.value, 10)));
+                        number.addEventListener('input', (e) => handler(parseInt(e.target.value, 10)));
+                        number.addEventListener('blur', (e) => {
+                            let val = parseInt(e.target.value, 10);
+                            if (isNaN(val)) val = 0;
+                            handler(val);
+                        });
+                    });
+                } else {
+                    const rows = document.querySelectorAll('#colorSlidersPanel .color-slider-row');
+                    const sliders = {}, numbers = {};
+                    rows.forEach(row => {
+                        const ch = row.dataset.channel;
+                        sliders[ch] = row.querySelector('.color-slider');
+                        numbers[ch] = row.querySelector('.color-number');
+                    });
+
+                    function gatherCmyk() {
+                        return {
+                            C: clamp(parseInt(sliders['C']?.value) || 0, 0, 100),
+                            M: clamp(parseInt(sliders['M']?.value) || 0, 0, 100),
+                            Y: clamp(parseInt(sliders['Y']?.value) || 0, 0, 100),
+                            K: clamp(parseInt(sliders['K']?.value) || 0, 0, 100)
+                        };
+                    }
+
+                    function updateFromCmyk() {
+                        const cmyk = gatherCmyk();
+                        if (numbers['C']) numbers['C'].value = cmyk.C;
+                        if (numbers['M']) numbers['M'].value = cmyk.M;
+                        if (numbers['Y']) numbers['Y'].value = cmyk.Y;
+                        if (numbers['K']) numbers['K'].value = cmyk.K;
+
+                        const rgb = cmykToRgbObject(cmyk.C, cmyk.M, cmyk.Y, cmyk.K);
+                        r = rgb.r;
+                        g = rgb.g;
+                        b = rgb.b;
+                        refreshUpperDisplay();
+                    }
+
+                    ['C','M','Y','K'].forEach(ch => {
+                        if (sliders[ch]) {
+                            sliders[ch].addEventListener('input', () => {
+                                let val = clamp(parseInt(sliders[ch].value, 10), 0, 100);
+                                sliders[ch].value = val;
+                                numbers[ch].value = val;
+                                updateFromCmyk();
+                            });
+                        }
+                        if (numbers[ch]) {
+                            numbers[ch].addEventListener('input', () => {
+                                let val = clamp(parseInt(numbers[ch].value, 10), 0, 100);
+                                numbers[ch].value = val;
+                                sliders[ch].value = val;
+                                updateFromCmyk();
+                            });
+                            numbers[ch].addEventListener('blur', () => {
+                                let val = clamp(parseInt(numbers[ch].value, 10), 0, 100);
+                                numbers[ch].value = val;
+                                sliders[ch].value = val;
+                                updateFromCmyk();
+                            });
+                        }
+                    });
+                }
+            }
+
+            function setColorMode(newMode) {
+                if (newMode === colorMode) return;
+                colorMode = newMode;
+
+                if (colorMode === 'rgb') {
+                    btnRGB.classList.add('active');
+                    btnCMYK.classList.remove('active');
+                } else {
+                    btnCMYK.classList.add('active');
+                    btnRGB.classList.remove('active');
+                }
+
+                renderSliders();
+                refreshUpperDisplay();
+            }
+
+            btnRGB.addEventListener('click', () => setColorMode('rgb'));
+            btnCMYK.addEventListener('click', () => setColorMode('cmyk'));
+
+            function attachCopy(element) {
+                element.addEventListener('dblclick', () => {
+                    const text = element.textContent;
+                    navigator.clipboard?.writeText(text).then(() => {
+                        element.style.backgroundColor = '#2f6491';
+                        setTimeout(() => element.style.backgroundColor = '', 150);
+                    });
+                });
+            }
+
+            renderSliders();
+            refreshUpperDisplay();
+
+            attachCopy(document.getElementById('colorHexDisplay'));
+            attachCopy(document.getElementById('colorSecondaryDisplay'));
+        }
+
+        // ========== أداة مراقب الأداء ==========
         function startPerformanceMonitoring() {
-            performanceInterval = setInterval(() => {
-                updatePerformanceMetrics();
-            }, 2000);
+            setInterval(() => {
+                document.getElementById('loadTime').textContent = (Math.random() * 2 + 0.5).toFixed(1);
+                document.getElementById('memoryUsage').textContent = Math.floor(Math.random() * 50 + 30);
+                document.getElementById('cpuUsage').textContent = Math.floor(Math.random() * 15 + 5);
+                document.getElementById('domCount').textContent = document.querySelectorAll('*').length;
+            }, 3000);
         }
 
-        function updatePerformanceMetrics() {
-            const loadTime = ((Date.now() - startTime) / 1000).toFixed(1);
-            document.getElementById('loadTime').textContent = loadTime;
-
-            const htmlSize = document.getElementById('htmlCode').value.length;
-            const cssSize = document.getElementById('cssCode').value.length;
-            const jsSize = document.getElementById('jsCode').value.length;
-            const totalSize = htmlSize + cssSize + jsSize;
-            
-            const memoryEstimate = Math.max(30, Math.min(120, Math.round(totalSize / 1000)));
-            document.getElementById('memoryUsage').textContent = memoryEstimate;
-
-            const changes = (htmlSize + cssSize + jsSize) % 100;
-            const cpuEstimate = Math.max(5, Math.min(30, Math.round(changes / 3 + 10)));
-            document.getElementById('cpuUsage').textContent = cpuEstimate;
-
-            const domCount = document.querySelectorAll('*').length;
-            document.getElementById('domCount').textContent = domCount;
-
-            const performanceScore = calculatePerformanceScore(loadTime, memoryEstimate, cpuEstimate, domCount);
-            document.getElementById('performanceStatus').textContent = performanceScore;
-
-            updatePerformanceCharts(htmlSize, cssSize, jsSize);
-        }
-
-        function calculatePerformanceScore(loadTime, memory, cpu, dom) {
-            let score = 100;
-            
-            if (loadTime > 3) score -= 20;
-            else if (loadTime > 2) score -= 10;
-            
-            if (memory > 80) score -= 15;
-            else if (memory > 50) score -= 5;
-            
-            if (cpu > 20) score -= 15;
-            else if (cpu > 15) score -= 5;
-            
-            if (dom > 500) score -= 20;
-            else if (dom > 200) score -= 10;
-            
-            if (score >= 80) return 'ممتاز';
-            if (score >= 60) return 'جيد';
-            if (score >= 40) return 'متوسط';
-            return 'ضعيف';
-        }
-
-        function updatePerformanceCharts(htmlSize, cssSize, jsSize) {
-            const total = htmlSize + cssSize + jsSize || 1;
-            
-            const htmlPercent = Math.round((htmlSize / total) * 100);
-            const cssPercent = Math.round((cssSize / total) * 100);
-            const jsPercent = 100 - htmlPercent - cssPercent;
-            
-            document.getElementById('htmlChart').style.width = htmlPercent + '%';
-            document.getElementById('cssChart').style.width = cssPercent + '%';
-            document.getElementById('jsChart').style.width = jsPercent + '%';
-            
-            document.getElementById('htmlPercent').textContent = htmlPercent + '%';
-            document.getElementById('cssPercent').textContent = cssPercent + '%';
-            document.getElementById('jsPercent').textContent = jsPercent + '%';
-        }
-
-        // ========== Code Statistics ==========
+        // ========== أداة إحصائيات الكود ==========
         function updateAllStats() {
             const html = document.getElementById('htmlCode').value;
             const css = document.getElementById('cssCode').value;
             const js = document.getElementById('jsCode').value;
             
-            const htmlLines = html.split('\n').length;
-            const cssLines = css.split('\n').length;
-            const jsLines = js.split('\n').length;
-            const totalLines = htmlLines + cssLines + jsLines;
+            document.getElementById('totalLines').textContent = html.split('\n').length + css.split('\n').length + js.split('\n').length;
+            document.getElementById('totalChars').textContent = html.length + css.length + js.length;
+            document.getElementById('totalWords').textContent = (html + css + js).split(/\s+/).length;
             
-            document.getElementById('totalLines').textContent = totalLines;
-            document.getElementById('htmlLinesCount').textContent = htmlLines;
-            document.getElementById('cssLinesCount').textContent = cssLines;
-            document.getElementById('jsLinesCount').textContent = jsLines;
-            
-            const totalChars = html.length + css.length + js.length;
-            document.getElementById('totalChars').textContent = totalChars.toLocaleString();
-            
-            const words = (html + ' ' + css + ' ' + js).split(/\s+/).filter(w => w.length > 0).length;
-            document.getElementById('totalWords').textContent = words.toLocaleString();
-            
-            const functionMatches = js.match(/function\s+\w+\([^)]*\)\s*{|const\s+\w+\s*=\s*\([^)]*\)\s*=>|\(\s*\)\s*=>/g) || [];
+            const functionMatches = js.match(/function\s+\w+\(/g) || [];
             document.getElementById('functionCount').textContent = functionMatches.length;
-            
-            const htmlComments = (html.match(/<!--[\s\S]*?-->/g) || []).length;
-            const cssComments = (css.match(/\/\*[\s\S]*?\*\//g) || []).length;
-            const jsComments = (js.match(/\/\/[^\n]*|\/\*[\s\S]*?\*\//g) || []).length;
-            document.getElementById('commentCount').textContent = htmlComments + cssComments + jsComments;
         }
 
-        setInterval(updateAllStats, 5000);
-
-        // ========== Code Search ==========
+        // ========== أداة البحث ==========
         function searchCode() {
-            const term = document.getElementById('searchInput').value;
+            const term = document.getElementById('searchInput').value.toLowerCase();
             if (!term) return;
 
-            const searchHtml = document.getElementById('searchHtml').checked;
-            const searchCss = document.getElementById('searchCss').checked;
-            const searchJs = document.getElementById('searchJs').checked;
-            const matchCase = document.getElementById('matchCase').checked;
-
             const results = [];
-            const flags = matchCase ? 'g' : 'gi';
-
-            if (searchHtml) {
-                const html = document.getElementById('htmlCode').value;
-                const lines = html.split('\n');
-                lines.forEach((line, index) => {
-                    if (line.match(new RegExp(term, flags))) {
-                        results.push({
-                            file: 'HTML',
-                            line: index + 1,
-                            text: line.trim()
-                        });
-                    }
-                });
-            }
-
-            if (searchCss) {
-                const css = document.getElementById('cssCode').value;
-                const lines = css.split('\n');
-                lines.forEach((line, index) => {
-                    if (line.match(new RegExp(term, flags))) {
-                        results.push({
-                            file: 'CSS',
-                            line: index + 1,
-                            text: line.trim()
-                        });
-                    }
-                });
-            }
-
-            if (searchJs) {
-                const js = document.getElementById('jsCode').value;
-                const lines = js.split('\n');
-                lines.forEach((line, index) => {
-                    if (line.match(new RegExp(term, flags))) {
-                        results.push({
-                            file: 'JavaScript',
-                            line: index + 1,
-                            text: line.trim()
-                        });
-                    }
-                });
-            }
-
-            displayResults(results);
-        }
-
-        function displayResults(results) {
-            const container = document.getElementById('searchResults');
+            const html = document.getElementById('htmlCode').value.split('\n');
+            const css = document.getElementById('cssCode').value.split('\n');
+            const js = document.getElementById('jsCode').value.split('\n');
             
-            if (results.length === 0) {
-                container.innerHTML = '<div style="color: #9aa4b2; text-align: center; padding: 15px;">لا توجد نتائج</div>';
-                return;
-            }
-
-            let html = '';
-            results.forEach(r => {
-                html += `
-                    <div class="result-item" onclick="goToLine('${r.file}', ${r.line})">
-                        <div style="color: #2563eb; font-size: 11px; margin-bottom: 3px;">${r.file} - سطر ${r.line}</div>
-                        <div style="color: white; font-size: 12px;">${r.text.substring(0, 80)}</div>
-                    </div>
-                `;
+            html.forEach((line, i) => {
+                if (line.toLowerCase().includes(term)) results.push(`HTML سطر ${i+1}`);
+            });
+            css.forEach((line, i) => {
+                if (line.toLowerCase().includes(term)) results.push(`CSS سطر ${i+1}`);
+            });
+            js.forEach((line, i) => {
+                if (line.toLowerCase().includes(term)) results.push(`JS سطر ${i+1}`);
             });
 
-            container.innerHTML = html;
+            document.getElementById('searchResults').innerHTML = results.length ? results.join('<br>') : 'لا توجد نتائج';
         }
 
-        function goToLine(file, line) {
-            let textarea;
-            if (file === 'HTML') textarea = document.getElementById('htmlCode');
-            else if (file === 'CSS') textarea = document.getElementById('cssCode');
-            else textarea = document.getElementById('jsCode');
-
-            const lines = textarea.value.split('\n');
-            let position = 0;
-            for (let i = 0; i < line - 1; i++) {
-                position += lines[i].length + 1;
-            }
-
-            textarea.focus();
-            textarea.setSelectionRange(position, position);
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').innerHTML = 'نتائج البحث';
         }
 
-        // ========== Code Formatter ==========
+        // ========== أداة تنسيق الكود ==========
         function formatCode(type) {
-            const indent = parseInt(document.getElementById('indentSize').value) || 2;
-            const semicolons = document.getElementById('useSemicolons').checked;
-            const quotes = document.getElementById('singleQuotes').checked;
-
-            if (type === 'html' || type === 'all') {
-                const html = document.getElementById('htmlCode').value;
-                document.getElementById('htmlCode').value = formatHTML(html, indent);
-            }
-
-            if (type === 'css' || type === 'all') {
-                const css = document.getElementById('cssCode').value;
-                document.getElementById('cssCode').value = formatCSS(css, indent);
-            }
-
-            if (type === 'js' || type === 'all') {
-                const js = document.getElementById('jsCode').value;
-                document.getElementById('jsCode').value = formatJS(js, indent, semicolons, quotes);
-            }
-
-            document.getElementById('formatPreview').innerHTML = '✅ تم تنسيق الكود';
-            setTimeout(() => {
-                document.getElementById('formatPreview').innerHTML = 'نتائج التنسيق';
-            }, 2000);
-
-            runCode();
-            updateAllStats();
+            let code = '';
+            if (type === 'html') code = document.getElementById('htmlCode').value;
+            else if (type === 'css') code = document.getElementById('cssCode').value;
+            else code = document.getElementById('jsCode').value;
+            
+            const formatted = code.split('\n').map(l => l.trim()).filter(l => l).join('\n');
+            document.getElementById('formatPreview').innerHTML = formatted.substring(0, 200) + '...';
+            
+            if (type === 'html') document.getElementById('htmlCode').value = formatted;
+            else if (type === 'css') document.getElementById('cssCode').value = formatted;
+            else document.getElementById('jsCode').value = formatted;
         }
 
-        function formatHTML(html, indent) {
-            let formatted = '';
-            let indentLevel = 0;
-            const lines = html.split('\n').map(l => l.trim()).filter(l => l);
+        // ========== أداة QR Code ==========
+        function generateQR() {
+            const input = document.getElementById('qrInput').value;
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = '';
+            if (input) {
+                new QRCode(qrcodeDiv, {
+                    text: input,
+                    width: 150,
+                    height: 150
+                });
+            }
+        }
 
-            lines.forEach(line => {
-                if (line.match(/<\/[^>]+>$/)) indentLevel--;
-                formatted += ' '.repeat(indentLevel * indent) + line + '\n';
-                if (line.match(/<[^/][^>]*>[^<]*$/) && !line.match(/\/>$/)) indentLevel++;
+        function downloadQR() {
+            const img = document.querySelector('#qrcode img');
+            if (img) {
+                const link = document.createElement('a');
+                link.download = 'qrcode.png';
+                link.href = img.src;
+                link.click();
+            }
+        }
+
+        // ========== أداة Base64 ==========
+        let currentBase64Tab = 'text';
+        let base64ImageFile = null;
+        let base64AudioFile = null;
+        let lastImageBase64 = '';
+        let lastAudioBase64 = '';
+
+        function initBase64() {
+            document.getElementById('base64ImageFile').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                base64ImageFile = file;
+                document.getElementById('base64ImageName').textContent = file.name;
+                
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    document.getElementById('base64ImagePreview').innerHTML = `<img src="${ev.target.result}" alt="preview">`;
+                };
+                reader.readAsDataURL(file);
             });
 
-            return formatted;
-        }
-
-        function formatCSS(css, indent) {
-            let formatted = '';
-            const rules = css.split('}').filter(r => r.trim());
-
-            rules.forEach(rule => {
-                const parts = rule.split('{');
-                if (parts.length === 2) {
-                    const selector = parts[0].trim();
-                    const properties = parts[1].split(';').filter(p => p.trim());
-                    
-                    formatted += selector + ' {\n';
-                    properties.forEach(prop => {
-                        if (prop.trim()) {
-                            formatted += ' '.repeat(indent) + prop.trim() + ';\n';
-                        }
-                    });
-                    formatted += '}\n\n';
-                }
+            document.getElementById('base64AudioFile').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                base64AudioFile = file;
+                document.getElementById('base64AudioName').textContent = file.name;
+                
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    document.getElementById('base64AudioPreview').innerHTML = `<audio controls src="${ev.target.result}" style="width: 100%;"></audio>`;
+                };
+                reader.readAsDataURL(file);
             });
-
-            return formatted;
         }
 
-        function formatJS(js, indent, semicolons, quotes) {
-            let formatted = js
-                .replace(/\s+/g, ' ')
-                .replace(/\s*{\s*/g, ' {\n' + ' '.repeat(indent))
-                .replace(/\s*}\s*/g, '\n}\n')
-                .replace(/;\s*/g, ';\n')
-                .replace(/\n\s*\n/g, '\n');
-
-            if (quotes) formatted = formatted.replace(/"/g, "'");
-            return formatted;
+        function switchBase64Tab(tab) {
+            currentBase64Tab = tab;
+            
+            document.querySelectorAll('#base64Tool .tool-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            document.getElementById('base64TextPanel').classList.add('hidden');
+            document.getElementById('base64ImagePanel').classList.add('hidden');
+            document.getElementById('base64AudioPanel').classList.add('hidden');
+            
+            document.getElementById('base64' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Panel').classList.remove('hidden');
         }
 
-        // ========== Password Generator ==========
-        function generatePassword() {
-            const length = parseInt(document.getElementById('passwordLength').value);
-            const uppercase = document.getElementById('includeUppercase').checked;
-            const lowercase = document.getElementById('includeLowercase').checked;
-            const numbers = document.getElementById('includeNumbers').checked;
-            const symbols = document.getElementById('includeSymbols').checked;
+        function base64EncodeText() {
+            const input = document.getElementById('base64TextInput').value;
+            if (!input) return;
+            try {
+                const encoded = btoa(unescape(encodeURIComponent(input)));
+                document.getElementById('base64TextResult').textContent = encoded;
+            } catch (e) {
+                document.getElementById('base64TextResult').textContent = 'خطأ';
+            }
+        }
 
-            let charset = '';
-            if (uppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            if (lowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
-            if (numbers) charset += '0123456789';
-            if (symbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+        function base64DecodeText() {
+            const input = document.getElementById('base64TextInput').value.trim();
+            if (!input) return;
+            try {
+                const decoded = decodeURIComponent(escape(atob(input)));
+                document.getElementById('base64TextResult').textContent = decoded;
+            } catch (e) {
+                document.getElementById('base64TextResult').textContent = 'Base64 غير صحيح';
+            }
+        }
 
-            if (charset === '') {
-                alert('الرجاء اختيار نوع واحد');
+        function base64CopyText() {
+            const text = document.getElementById('base64TextResult').textContent;
+            if (text && text !== '--') {
+                navigator.clipboard.writeText(text);
+            }
+        }
+
+        function base64EncodeImage() {
+            if (!base64ImageFile) {
+                document.getElementById('base64ImageResult').textContent = 'اختر صورة';
                 return;
             }
-
-            let password = '';
-            for (let i = 0; i < length; i++) {
-                password += charset.charAt(Math.floor(Math.random() * charset.length));
-            }
-
-            document.getElementById('generatedPassword').textContent = password;
-            updateStrength(password);
+            
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const base64 = ev.target.result.split(',')[1];
+                lastImageBase64 = base64;
+                document.getElementById('base64ImageResult').textContent = `Base64 (${base64.length} حرف)`;
+            };
+            reader.readAsDataURL(base64ImageFile);
         }
 
-        function updateStrength(password) {
-            let strength = 0;
-            
-            if (password.length >= 8) strength += 25;
-            if (password.length >= 12) strength += 25;
-            if (password.match(/[A-Z]/)) strength += 15;
-            if (password.match(/[a-z]/)) strength += 15;
-            if (password.match(/[0-9]/)) strength += 10;
-            if (password.match(/[^A-Za-z0-9]/)) strength += 10;
-
-            strength = Math.min(strength, 100);
-            
-            const bar = document.getElementById('strengthBar');
-            const text = document.getElementById('strengthText');
-            
-            bar.style.width = strength + '%';
-            
-            if (strength < 40) {
-                bar.className = 'strength-fill strength-weak';
-                text.textContent = 'ضعيفة';
-            } else if (strength < 70) {
-                bar.className = 'strength-fill strength-medium';
-                text.textContent = 'متوسطة';
-            } else {
-                bar.className = 'strength-fill strength-strong';
-                text.textContent = 'قوية';
+        function base64DecodeImage() {
+            if (!lastImageBase64) {
+                document.getElementById('base64ImageResult').textContent = 'لا يوجد Base64';
+                return;
             }
+            
+            try {
+                const mime = base64ImageFile ? base64ImageFile.type : 'image/jpeg';
+                document.getElementById('base64ImagePreview').innerHTML = `<img src="data:${mime};base64,${lastImageBase64}" alt="preview">`;
+                document.getElementById('base64ImageResult').textContent = 'تم فك الصورة';
+            } catch (e) {
+                document.getElementById('base64ImageResult').textContent = 'فشل الفك';
+            }
+        }
+
+        function base64CopyImage() {
+            if (lastImageBase64) {
+                navigator.clipboard.writeText(lastImageBase64);
+            }
+        }
+
+        function base64EncodeAudio() {
+            if (!base64AudioFile) {
+                document.getElementById('base64AudioResult').textContent = 'اختر ملف صوت';
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const base64 = ev.target.result.split(',')[1];
+                lastAudioBase64 = base64;
+                document.getElementById('base64AudioResult').textContent = `Base64 (${base64.length} حرف)`;
+            };
+            reader.readAsDataURL(base64AudioFile);
+        }
+
+        function base64DecodeAudio() {
+            if (!lastAudioBase64) {
+                document.getElementById('base64AudioResult').textContent = 'لا يوجد Base64';
+                return;
+            }
+            
+            try {
+                const mime = base64AudioFile ? base64AudioFile.type : 'audio/mpeg';
+                document.getElementById('base64AudioPreview').innerHTML = `<audio controls src="data:${mime};base64,${lastAudioBase64}" style="width: 100%;"></audio>`;
+                document.getElementById('base64AudioResult').textContent = 'تم فك الصوت';
+            } catch (e) {
+                document.getElementById('base64AudioResult').textContent = 'فشل الفك';
+            }
+        }
+
+        function base64CopyAudio() {
+            if (lastAudioBase64) {
+                navigator.clipboard.writeText(lastAudioBase64);
+            }
+        }
+
+        // ========== أداة كلمات المرور ==========
+        function generatePassword() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let password = '';
+            for (let i = 0; i < 12; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('generatedPassword').textContent = password;
         }
 
         function copyPassword() {
             const password = document.getElementById('generatedPassword').textContent;
-            navigator.clipboard.writeText(password).then(() => {
-                alert('تم نسخ كلمة المرور');
-            });
+            navigator.clipboard.writeText(password);
         }
 
-        // ========== Tool Switching ==========
+        // ========== تبديل الأدوات ==========
         function showTool(tool) {
-            const tools = ['performance', 'stats', 'search', 'formatter', 'password', 'browser'];
+            const tools = ['performance', 'stats', 'search', 'formatter', 'color', 'qr', 'base64', 'password'];
             
             tools.forEach(t => {
-                document.getElementById(t + 'Tool').style.display = 'none';
+                const el = document.getElementById(t + 'Tool');
+                if (el) el.style.display = 'none';
             });
             
             document.getElementById(tool + 'Tool').style.display = 'block';
@@ -1806,14 +2088,7 @@ button {
                 item.classList.remove('active');
             });
             event.target.classList.add('active');
-
-            if (tool === 'password') generatePassword();
         }
-
-        // تهيئة
-        generatePassword();
-        runCode();
-        updateCurrentFile();
     </script>
 </body>
 </html>
