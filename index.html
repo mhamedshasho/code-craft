@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Code Editor Pro - Mhamed Shasho</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -1094,9 +1095,9 @@ console.log('الصفحة جاهزة');</textarea>
                         <div class="preview-header">
                             <h3>معاينة</h3>
                             <div class="device-selector">
-                                <button class="device-btn active" onclick="changeDevice('mobile')">جوال</button>
-                                <button class="device-btn" onclick="changeDevice('tablet')">تابلت</button>
-                                <button class="device-btn" onclick="changeDevice('desktop')">كمبيوتر</button>
+                                <button class="device-btn active" onclick="changeDevice('mobile', this)">جوال</button>
+                                <button class="device-btn" onclick="changeDevice('tablet', this)">تابلت</button>
+                                <button class="device-btn" onclick="changeDevice('desktop', this)">كمبيوتر</button>
                             </div>
                         </div>
                         
@@ -1121,35 +1122,35 @@ console.log('الصفحة جاهزة');</textarea>
 
                     <!-- قائمة الأدوات -->
                     <div class="tools-menu">
-                        <div class="tool-menu-item active" onclick="showTool('performance')">
+                        <div class="tool-menu-item active" onclick="showTool('performance', this)">
                             <span class="tool-icon">📊</span>
                             مراقب الأداء
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('stats')">
+                        <div class="tool-menu-item" onclick="showTool('stats', this)">
                             <span class="tool-icon">📈</span>
                             إحصائيات
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('search')">
+                        <div class="tool-menu-item" onclick="showTool('search', this)">
                             <span class="tool-icon">🔍</span>
                             بحث
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('formatter')">
+                        <div class="tool-menu-item" onclick="showTool('formatter', this)">
                             <span class="tool-icon">✨</span>
                             تنسيق
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('color')">
+                        <div class="tool-menu-item" onclick="showTool('color', this)">
                             <span class="tool-icon">🎨</span>
                             ألوان
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('qr')">
+                        <div class="tool-menu-item" onclick="showTool('qr', this)">
                             <span class="tool-icon">🔗</span>
                             QR
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('base64')">
+                        <div class="tool-menu-item" onclick="showTool('base64', this)">
                             <span class="tool-icon">🔐</span>
                             Base64
                         </div>
-                        <div class="tool-menu-item" onclick="showTool('password')">
+                        <div class="tool-menu-item" onclick="showTool('password', this)">
                             <span class="tool-icon">🔑</span>
                             كلمات مرور
                         </div>
@@ -1285,9 +1286,9 @@ console.log('الصفحة جاهزة');</textarea>
                         <div id="base64Tool" style="display: none;">
                             <div class="tool-card">
                                 <div class="tool-tabs">
-                                    <button class="tool-tab active" onclick="switchBase64Tab('text')">نص</button>
-                                    <button class="tool-tab" onclick="switchBase64Tab('image')">صورة</button>
-                                    <button class="tool-tab" onclick="switchBase64Tab('audio')">صوت</button>
+                                    <button class="tool-tab active" onclick="switchBase64Tab('text', this)">نص</button>
+                                    <button class="tool-tab" onclick="switchBase64Tab('image', this)">صورة</button>
+                                    <button class="tool-tab" onclick="switchBase64Tab('audio', this)">صوت</button>
                                 </div>
 
                                 <!-- Text Panel -->
@@ -1585,6 +1586,16 @@ button {
             }, 10000);
         }
 
+        // تحديث الإحصائيات تلقائياً عند الكتابة
+        ['htmlCode', 'cssCode', 'jsCode'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                const statsTool = document.getElementById('statsTool');
+                if (statsTool && statsTool.style.display !== 'none') {
+                    updateAllStats();
+                }
+            });
+        });
+
         // تحميل المحفوظات
         const savedHTML = localStorage.getItem('savedHTML');
         const savedCSS = localStorage.getItem('savedCSS');
@@ -1595,13 +1606,13 @@ button {
         if (savedJS) document.getElementById('jsCode').value = savedJS;
 
         // ========== معاينة متجاوبة ==========
-        function changeDevice(device) {
+        function changeDevice(device, el) {
             const frame = document.getElementById('responsiveFrame');
             
             document.querySelectorAll('.device-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (el) el.classList.add('active');
             
             frame.className = 'responsive-frame';
             
@@ -1913,12 +1924,14 @@ button {
             const input = document.getElementById('qrInput').value;
             const qrcodeDiv = document.getElementById('qrcode');
             qrcodeDiv.innerHTML = '';
-            if (input) {
+            if (input && typeof QRCode !== 'undefined') {
                 new QRCode(qrcodeDiv, {
                     text: input,
                     width: 150,
                     height: 150
                 });
+            } else if (typeof QRCode === 'undefined') {
+                qrcodeDiv.innerHTML = '<span style="color:#ef4444;font-size:12px;">تعذر تحميل مكتبة QR</span>';
             }
         }
 
@@ -1967,13 +1980,13 @@ button {
             });
         }
 
-        function switchBase64Tab(tab) {
+        function switchBase64Tab(tab, el) {
             currentBase64Tab = tab;
             
             document.querySelectorAll('#base64Tool .tool-tab').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (el) el.classList.add('active');
             
             document.getElementById('base64TextPanel').classList.add('hidden');
             document.getElementById('base64ImagePanel').classList.add('hidden');
@@ -2099,12 +2112,12 @@ button {
         }
 
         // ========== تبديل الأدوات ==========
-        function showTool(tool) {
+        function showTool(tool, el) {
             const tools = ['performance', 'stats', 'search', 'formatter', 'color', 'qr', 'base64', 'password'];
             
             tools.forEach(t => {
-                const el = document.getElementById(t + 'Tool');
-                if (el) el.style.display = 'none';
+                const toolEl = document.getElementById(t + 'Tool');
+                if (toolEl) toolEl.style.display = 'none';
             });
             
             document.getElementById(tool + 'Tool').style.display = 'block';
@@ -2112,7 +2125,10 @@ button {
             document.querySelectorAll('.tool-menu-item').forEach(item => {
                 item.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (el) el.classList.add('active');
+
+            // تحديث الإحصائيات عند فتح أداة الإحصائيات
+            if (tool === 'stats') updateAllStats();
         }
     </script>
 </body>
