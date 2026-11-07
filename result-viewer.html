@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عارض النتيجة</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182230;
+      --muted: #697586;
+      --accent: #2563eb;
+      --line: #e4eaf2;
+      --surface: #ffffff;
+      --background: #f3f6fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 32px 18px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top right, #e7efff, transparent 42%), var(--background);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+    }
+    .app { width: min(760px, 100%); }
+    header { margin-bottom: 20px; }
+    .eyebrow { color: var(--accent); font-size: .88rem; font-weight: 700; }
+    h1 { margin: 6px 0; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    .subtitle { margin: 0; color: var(--muted); }
+    .panel {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px #1b31510d;
+    }
+    .toolbar {
+      min-height: 62px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #22a06b; }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 9px 13px;
+      color: white;
+      background: var(--accent);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    button.secondary { color: #334155; background: #eef2f7; }
+    button.secondary:hover { background: #e2e8f0; }
+    .result { min-height: 190px; padding: 28px; }
+    .result h2 { margin: 0 0 12px; font-size: 1rem; color: var(--muted); }
+    #output { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 1.35rem; line-height: 1.8; }
+    details { border-top: 1px solid var(--line); }
+    summary { padding: 14px 18px; color: var(--muted); cursor: pointer; font-weight: 650; }
+    .editor { padding: 0 18px 18px; }
+    textarea {
+      width: 100%; min-height: 105px; resize: vertical; padding: 12px;
+      border: 1px solid var(--line); border-radius: 10px; color: var(--ink);
+      font: inherit; line-height: 1.6; outline: none;
+    }
+    textarea:focus { border-color: #8bb1ff; box-shadow: 0 0 0 3px #2563eb18; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    footer { padding: 14px 18px; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); }
+    @media (max-width: 480px) { body { padding: 22px 12px; } .result { padding: 22px 18px; } }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="eyebrow">عارض بسيط</div>
+      <h1>النتيجة</h1>
+      <p class="subtitle">اكتب النتيجة التي تريد عرضها، ثم حدّث المعاينة.</p>
+    </header>
+
+    <section class="panel" aria-label="عارض النتيجة">
+      <div class="toolbar">
+        <span class="status"><span class="dot" aria-hidden="true"></span><span id="statusText">جاهز للعرض</span></span>
+        <button id="copyButton" class="secondary" type="button">نسخ النتيجة</button>
+      </div>
+      <div class="result" aria-live="polite">
+        <h2>المحتوى المعروض</h2>
+        <p id="output">نتيجة</p>
+      </div>
+      <details open>
+        <summary>تعديل المحتوى</summary>
+        <div class="editor">
+          <textarea id="input" aria-label="اكتب النتيجة هنا">نتيجة</textarea>
+          <div class="actions">
+            <button id="showButton" type="button">عرض النتيجة</button>
+            <button id="resetButton" class="secondary" type="button">إعادة المثال</button>
+          </div>
+        </div>
+      </details>
+      <footer>ملف مستقل — لا يحتاج إلى مكتبات أو اتصال بالإنترنت.</footer>
+    </section>
+  </main>
+
+  <script>
+    const input = document.querySelector('#input');
+    const output = document.querySelector('#output');
+    const statusText = document.querySelector('#statusText');
+    const initialText = 'نتيجة';
+
+    document.querySelector('#showButton').addEventListener('click', () => {
+      output.textContent = input.value.trim() || 'لا توجد نتيجة لعرضها.';
+      statusText.textContent = 'تم تحديث النتيجة';
+    });
+
+    document.querySelector('#resetButton').addEventListener('click', () => {
+      input.value = initialText;
+      output.textContent = initialText;
+      statusText.textContent = 'تمت إعادة المثال';
+    });
+
+    document.querySelector('#copyButton').addEventListener('click', async (event) => {
+      try {
+        await navigator.clipboard.writeText(output.textContent);
+        event.currentTarget.textContent = 'تم النسخ';
+        setTimeout(() => { event.currentTarget.textContent = 'نسخ النتيجة'; }, 1400);
+      } catch {
+        statusText.textContent = 'تعذر النسخ — حدّد النص وانسخه يدويًا';
+      }
+    });
+  </script>
+</body>
+</html>
